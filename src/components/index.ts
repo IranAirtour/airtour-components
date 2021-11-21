@@ -30,6 +30,7 @@ import { LoadingLottie } from './LoadingLottie/LoadingLottie';
 import { ILoadingLottieProps } from './LoadingLottie/interface';
 import { AirtourLogo } from './AirtourLogo/AirtourLogo';
 import {GlobalStyles, flatten} from './globalStyles'
+import {DateBar} from "./DateBar";
 
 export {
   BaseScreenView,
@@ -54,6 +55,7 @@ export {
   BottomSheetButton,
   FileBottomSheet,
   useFileSheet,
+  DateBar,
   AirtourLogo,
   GlobalStyles,
   flatten,

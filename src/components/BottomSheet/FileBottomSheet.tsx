@@ -1,6 +1,5 @@
 import { BackHandler, StyleSheet, View } from 'react-native';
-import { BottomSheetButton, Text } from 'airtour-components';
-import { flatten, GlobalStyles } from 'airtour-components/globalStyles';
+import { BottomSheetButton, Text, flatten, GlobalStyles } from 'airtour-components';
 import React, { useCallback, useEffect, useMemo, useRef } from 'react';
 import BottomSheet from 'reanimated-bottom-sheet';
 import { TouchableOpacity } from 'react-native-gesture-handler';

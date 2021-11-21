@@ -9,7 +9,8 @@ import {
 } from 'react-native';
 import type { IImageProps } from './interface';
 import { styles } from './styles';
-import { NetworkBusClient } from '../../networkAdapter';
+import {AsyncStorageService} from "../../utils/AsyncStorageService";
+import {TokenTypes} from "../../resources/strings";
 
 const Image = (props: IImageProps) => {
   const {
@@ -33,7 +34,7 @@ const Image = (props: IImageProps) => {
       return {
         ...source,
         headers: {
-          Authorization: 'Bearer ' + NetworkBusClient.getAccessToken(),
+          Authorization: 'Bearer ' + AsyncStorageService.getItem(TokenTypes.AccessToken),
         },
       };
     }

@@ -4,7 +4,7 @@
   "private": true,
   "main": "src/components/index.ts",
   "exports": {
-    "./": "./src/components/index.ts"
+    "./": "./src/components/"
   },
   "scripts": {
     "android": "react-native run-android",

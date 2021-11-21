@@ -7,22 +7,18 @@ import {
   ImageBackground,
   FlexAlignType,
 } from 'react-native';
-import {
-  SafeAreaView,
-  useSafeArea,
-  useSafeAreaInsets,
-} from 'react-native-safe-area-context';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { renderNode } from '../Helpers';
-import { useIsFocused } from '@react-navigation/native';
 
 import { Text } from '../Text';
 import { Icon } from '../Icon';
 import { styles } from './styles';
-import { Theme, useTheme } from '@react-navigation/native';
 import { IHeaderChildrenProps, IHeaderProps, IPlacement } from './interface';
 import Androw from 'react-native-androw';
 import { generateShadowStyle } from '../../utils/Other';
 import { GlobalStyles } from '../globalStyles';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useThemeColors } from '../Theme/ThemeProvider';
 const ALIGN_STYLE: Record<IPlacement, FlexAlignType> = {
   left: 'flex-start',
   right: 'flex-end',
@@ -76,45 +72,42 @@ const Header: React.FunctionComponent<IHeaderProps> = props => {
     statusBarProps = {},
     ...attributes
   } = props;
-  const theme: Theme = useTheme();
+  const themeColors = useThemeColors();
   const SafeAreaComponent = useMemo(() => {
     return withSafeArea ? SafeAreaView : View;
   }, [withSafeArea]);
   const insets = useSafeAreaInsets();
-  const isFocused = useIsFocused();
   return (
     <>
-      {isFocused ? (
-        <StatusBar
-          translucent={Platform.OS === 'ios'}
-          backgroundColor={backgroundColor || theme?.colors?.primary}
-          barStyle={barStyle ?? 'dark-content'}
-          {...statusBarProps}
-        />
-      ) : null}
+      <StatusBar
+        translucent={Platform.OS === 'ios'}
+        backgroundColor={backgroundColor || themeColors.backgroundPaper}
+        barStyle={barStyle ?? 'dark-content'}
+        {...statusBarProps}
+      />
       <ViewComponent
         testID="headerContainer"
         {...attributes}
         style={StyleSheet.flatten([
           GlobalStyles.width100,
           {
-            borderBottomColor: '#f2f2f2',
+            borderBottomColor: themeColors.grey50,
             borderBottomWidth: StyleSheet.hairlineWidth,
             paddingHorizontal: 10,
-            paddingTop: 2,
             paddingBottom: 2,
-            backgroundColor: theme.colors.primary,
+            backgroundColor: themeColors.backgroundPaper,
             flexDirection: 'row',
             justifyContent: 'center',
             alignItems: 'center',
-            // height: 46,
           },
           backgroundColor && { backgroundColor },
           withShadow && generateShadowStyle(shadowColor),
           containerStyle,
-          // @ts-ignore
-          // height: 52 + insets.top,
-          { height: (containerStyle?.height ?? 52) + insets.top },
+          {
+            // @ts-ignore
+            // height: 52 + insets.top,
+            height: (containerStyle?.height ?? 52) + insets.top,
+          },
         ])}
         source={backgroundImage}
         imageStyle={backgroundImageStyle}
@@ -126,6 +119,7 @@ const Header: React.FunctionComponent<IHeaderProps> = props => {
             GlobalStyles.fullCenter,
             GlobalStyles.flex1,
             {
+              paddingTop: 10,
               // paddingTop: withSafeArea ? (Platform.OS === 'ios' ? 0 : 0) : 0,
             },
           ])}>

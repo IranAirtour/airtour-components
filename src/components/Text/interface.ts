@@ -5,8 +5,12 @@ import {
 } from 'react-native';
 import { ReactNode } from 'react';
 
-export interface ITextProps extends TextProperties {
+export interface ITextProps extends TextProperties, ITextTypography {
   style?: StyleProp<TextStyle>;
+  children?: ReactNode | any;
+}
+
+export type ITextTypography = {
   h1?: boolean;
   h2?: boolean;
   h3?: boolean;
@@ -15,6 +19,7 @@ export interface ITextProps extends TextProperties {
   h6?: boolean;
   h7?: boolean;
   h8?: boolean;
+  h9?: boolean;
   h1Style?: StyleProp<TextStyle>;
   h2Style?: StyleProp<TextStyle>;
   h3Style?: StyleProp<TextStyle>;
@@ -23,5 +28,5 @@ export interface ITextProps extends TextProperties {
   h6Style?: StyleProp<TextStyle>;
   h7Style?: StyleProp<TextStyle>;
   h8Style?: StyleProp<TextStyle>;
-  children?: ReactNode | any;
-}
+  h9Style?: StyleProp<TextStyle>;
+};

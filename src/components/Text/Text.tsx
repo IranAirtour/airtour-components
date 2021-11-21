@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
 import { Text, StyleSheet, TextStyle } from 'react-native';
 import { ScreenUtils } from '../Helpers/index';
-import { Theme, useTheme } from '@react-navigation/native';
 import { styles } from './styles';
 import { ITextProps } from './interface';
+import { flatten } from '../globalStyles';
+import { useThemeColors } from '../Theme/ThemeProvider';
 
-const scaleFontSize = ScreenUtils.scaleFontSize;
 const TextComponent: FC<ITextProps> = (props: ITextProps) => {
   const {
     style,
@@ -18,6 +18,7 @@ const TextComponent: FC<ITextProps> = (props: ITextProps) => {
     h6,
     h7,
     h8,
+    h9,
     h1Style,
     h2Style,
     h3Style,
@@ -26,42 +27,28 @@ const TextComponent: FC<ITextProps> = (props: ITextProps) => {
     h6Style,
     h7Style,
     h8Style,
+    h9Style,
     ...rest
-  } = props;
-  const theme: Theme = useTheme();
+  }: ITextProps = props;
+  const themeColor = useThemeColors();
   return (
     <Text
-      style={StyleSheet.flatten([
+      style={flatten([
         styles.font,
         {
-          color: theme.colors.text,
+          color: themeColor?.textDark ?? 'grey',
         },
         style,
         (h1 || h2 || h3 || h4) && (styles.bold as TextStyle),
-        h1 && StyleSheet.flatten([{ fontSize: scaleFontSize(40) }, h1Style]),
-        h2 && StyleSheet.flatten([{ fontSize: scaleFontSize(34) }, h2Style]),
-        h3 && StyleSheet.flatten([{ fontSize: scaleFontSize(28) }, h3Style]),
-        h4 && StyleSheet.flatten([{ fontSize: scaleFontSize(22) }, h4Style]),
-        h5 &&
-          StyleSheet.flatten([
-            { fontSize: ScreenUtils.scaleFontSize(20) },
-            h5Style,
-          ]),
-        h6 &&
-          StyleSheet.flatten([
-            { fontSize: ScreenUtils.scaleFontSize(18) },
-            h6Style,
-          ]),
-        h7 &&
-          StyleSheet.flatten([
-            { fontSize: ScreenUtils.scaleFontSize(16) },
-            h7Style,
-          ]),
-        h8 &&
-          StyleSheet.flatten([
-            { fontSize: ScreenUtils.scaleFontSize(14) },
-            h8Style,
-          ]),
+        h1 && flatten([{ fontSize: ScreenUtils.scaleFontSize(40) }, h1Style]),
+        h2 && flatten([{ fontSize: ScreenUtils.scaleFontSize(34) }, h2Style]),
+        h3 && flatten([{ fontSize: ScreenUtils.scaleFontSize(28) }, h3Style]),
+        h4 && flatten([{ fontSize: ScreenUtils.scaleFontSize(22) }, h4Style]),
+        h5 && flatten([{ fontSize: ScreenUtils.scaleFontSize(20) }, h5Style]),
+        h6 && flatten([{ fontSize: ScreenUtils.scaleFontSize(18) }, h6Style]),
+        h7 && flatten([{ fontSize: ScreenUtils.scaleFontSize(16) }, h7Style]),
+        h8 && flatten([{ fontSize: ScreenUtils.scaleFontSize(14) }, h8Style]),
+        h9 && flatten([{ fontSize: ScreenUtils.scaleFontSize(10) }, h9Style]),
       ])}
       {...rest}>
       {children ?? ''}
@@ -78,6 +65,7 @@ TextComponent.defaultProps = {
   h6: false,
   h7: false,
   h8: false,
+  h9: false,
   style: {},
   h1Style: {},
   h2Style: {},
@@ -87,6 +75,7 @@ TextComponent.defaultProps = {
   h6Style: {},
   h7Style: {},
   h8Style: {},
+  h9Style: {},
 };
 
 export default TextComponent;

@@ -1,4 +1,5 @@
 import { Platform, StyleSheet } from 'react-native';
+import {FontFamily} from "../Helpers";
 
 export const styles = StyleSheet.create({
   button: {
@@ -9,9 +10,11 @@ export const styles = StyleSheet.create({
     paddingVertical: 4,
     overflow: 'hidden',
     borderRadius: 3,
+    height: 45,
   },
   title: {
-    fontSize: 16,
+    // fontSize: 16,
+    fontFamily: FontFamily.Nunito,
     textAlign: 'center',
     paddingVertical: 1,
   },

@@ -1,16 +1,16 @@
 import React from 'react';
-import {Blurhash} from 'react-native-blurhash';
-import {View, StyleSheet, StyleProp, ViewStyle} from 'react-native';
-import {styles} from './styles';
-import {Image} from '../index';
-import {FC, useState} from 'react';
-import {IImageBlur} from './interface';
+import { Blurhash } from 'react-native-blurhash';
+import { View, StyleSheet, StyleProp, ViewStyle } from 'react-native';
+import { styles } from './styles';
+import { Image } from '../index';
+import { FC, useState } from 'react';
+import { IImageBlur } from './interface';
 
 const ImageBlur: FC<IImageBlur> = (props: IImageBlur) => {
   const {
     containerStyle = {},
     blurStyle = {},
-    blurhashProps: {blurhash = null},
+    blurhashProps: { blurhash = null },
     imageProps,
     borderRadius = null,
   } = props;
@@ -52,4 +52,4 @@ const ImageBlur: FC<IImageBlur> = (props: IImageBlur) => {
     </View>
   );
 };
-export {ImageBlur};
+export { ImageBlur };

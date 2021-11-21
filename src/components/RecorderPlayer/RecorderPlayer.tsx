@@ -1,16 +1,16 @@
-import React, {useCallback} from 'react';
-import {StyleSheet, TouchableWithoutFeedback, View} from 'react-native';
-import {Button, Icon, ScreenUtils} from 'airtour-components';
-import {GlobalStyles} from 'airtour-components/globalStyles';
+import React, { useCallback } from 'react';
+import { StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
+import { Button, Icon, ScreenUtils } from 'airtour-components';
+import { GlobalStyles } from 'airtour-components/globalStyles';
 const BUTTON_WIDTH = ScreenUtils.width * 0.09;
 import TrackPlayer, {
   useTrackPlayerProgress,
   usePlaybackState,
 } from 'react-native-track-player';
-import {TrackPlayerClient} from '../../utils/TrackPlayer';
+import { TrackPlayerClient } from '../../utils/TrackPlayer';
 const TRACK_PLAYER_BAR_WIDTH = ScreenUtils.width * 0.44;
 function RecorderPlayer(props: any) {
-  const {containerStyle = {}, audio, fileName} = props;
+  const { containerStyle = {}, audio, fileName } = props;
   const playbackState = usePlaybackState();
   const progress = useTrackPlayerProgress(1000, [
     TrackPlayer.STATE_PLAYING,
@@ -86,7 +86,7 @@ function RecorderPlayer(props: any) {
           }
         />
       </View>
-      <View style={StyleSheet.flatten([GlobalStyles.fullCenter, {flex: 7}])}>
+      <View style={StyleSheet.flatten([GlobalStyles.fullCenter, { flex: 7 }])}>
         <TouchableWithoutFeedback
           onPress={event => {
             // duration = >   TRACK_PLAYER_BAR_WIDTH
@@ -125,7 +125,7 @@ function RecorderPlayer(props: any) {
     </View>
   );
 }
-export {RecorderPlayer};
+export { RecorderPlayer };
 const styles = StyleSheet.create({
   container: {
     width: '100%',

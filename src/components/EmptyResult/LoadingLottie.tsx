@@ -1,16 +1,16 @@
 import { StyleSheet, View } from 'react-native';
-import { GlobalStyles } from '../globalStyles';
+import { flatten, GlobalStyles } from '../globalStyles';
 import React from 'react';
 import { Text } from '../Text';
 import { FontFamily, ScreenUtils } from '../Helpers';
 import { Icon } from '../Icon';
-import { flatten } from '../../screens/FormBuilder/styles';
+import withTheme from '../Theme/withTheme';
 
-export const EmptyResult = () => {
+const EmptyResultBase = () => {
   return (
     <View
       style={StyleSheet.flatten([
-        GlobalStyles.flex1,
+        // GlobalStyles.flex1,
         GlobalStyles.fullCenter,
         GlobalStyles.centerSelf,
         { height: ScreenUtils.h(50), padding: 30 },
@@ -24,7 +24,7 @@ export const EmptyResult = () => {
             color: '#8f8f8f',
           },
         ])}>
-        There is not any Flight
+        There is not any result for this search
       </Text>
       <Icon
         name={'calendar-search'}
@@ -36,3 +36,4 @@ export const EmptyResult = () => {
     </View>
   );
 };
+export const EmptyResult = withTheme(EmptyResultBase, 'EmptyResultBase');

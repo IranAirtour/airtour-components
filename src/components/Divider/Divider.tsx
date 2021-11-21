@@ -1,10 +1,10 @@
-import React, {FC} from 'react';
-import {View, StyleSheet} from 'react-native';
-import {IDividerProps} from './interface';
-import {withTheme} from "../Helpers/withTheme";
+import React, { FC } from 'react';
+import { View, StyleSheet } from 'react-native';
+import { IDividerProps } from './interface';
+import withTheme from '../Theme/withTheme';
 
 const Divider: FC<IDividerProps> = props => {
-  const {style, theme, ...rest} = props;
+  const { style, theme, ...rest } = props;
 
   return (
     <View
@@ -20,4 +20,4 @@ const Divider: FC<IDividerProps> = props => {
   );
 };
 
-export default withTheme(Divider);
+export default withTheme(Divider, 'Divider');

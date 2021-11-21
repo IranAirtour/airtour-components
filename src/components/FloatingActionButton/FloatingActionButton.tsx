@@ -1,9 +1,9 @@
-import React, {FC} from 'react';
-import {StyleSheet, Animated} from 'react-native';
+import React, { FC } from 'react';
+import { StyleSheet, Animated } from 'react-native';
 import Button from '../Button/Button';
-import {withTheme} from '../Helpers/withTheme';
-import {IFloatingActionButtonProps} from './interface';
+import { IFloatingActionButtonProps } from './interface';
 import styles from './styles';
+import withTheme from '../Theme/withTheme';
 
 const FloatingActionButton: FC<IFloatingActionButtonProps> = props => {
   const {
@@ -22,7 +22,7 @@ const FloatingActionButton: FC<IFloatingActionButtonProps> = props => {
     ...attributes
   } = props;
 
-  const {current: animation} = React.useRef(
+  const { current: animation } = React.useRef(
     new Animated.Value(Number(visible)),
   );
 
@@ -39,7 +39,7 @@ const FloatingActionButton: FC<IFloatingActionButtonProps> = props => {
       style={[
         {
           opacity: animation,
-          transform: [{scale: animation}],
+          transform: [{ scale: animation }],
         },
         styles.content,
         placement && {
@@ -77,16 +77,16 @@ const FloatingActionButton: FC<IFloatingActionButtonProps> = props => {
         ])}
         titleStyle={[
           styles.label,
-          {color: theme?.colors?.text},
+          { color: theme?.colors?.text },
           upperCase && styles.upperCaseLabel,
           titleStyle,
         ]}
         {...attributes}
-        {...{disabled, theme}}
+        {...{ disabled, theme }}
       />
     </Animated.View>
   );
 };
 
 // export default FloatingActionButton;
-export default withTheme(FloatingActionButton);
+export default withTheme(FloatingActionButton, 'FloatingActionButton');

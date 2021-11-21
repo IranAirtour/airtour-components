@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, { FC } from 'react';
 import {
   Text,
   View,
@@ -10,11 +10,12 @@ import {
   StyleProp,
   TextInputProps,
 } from 'react-native';
-import {renderNode} from '../Helpers/renderNode';
-import {Icon} from '../Icon';
-import {styles} from './styles';
-import {IInputProps} from './interface';
-import {withTheme} from '../Helpers/withTheme';
+import { renderNode } from '../Helpers';
+import { Icon } from '../Icon';
+import { styles } from './styles';
+import { IInputProps } from './interface';
+import { flatten, GlobalStyles } from '../globalStyles';
+import { FontFamily, ScreenUtils } from '../Helpers';
 
 const renderText = (content: any, defaultProps: any, style: StyleProp<any>) =>
   renderNode(Text, content, {
@@ -27,7 +28,9 @@ class Input extends React.Component<IInputProps> {
   shakeAnimationValue = new Animated.Value(0);
 
   focus(): void {
-    this.input.focus();
+    try {
+      this.input.focus();
+    } catch (_) {}
   }
 
   blur(): void {
@@ -47,7 +50,7 @@ class Input extends React.Component<IInputProps> {
   }
 
   shake = () => {
-    const {shakeAnimationValue} = this;
+    const { shakeAnimationValue } = this;
     shakeAnimationValue.setValue(0);
     Animated.timing(shakeAnimationValue, {
       duration: 375,
@@ -56,6 +59,13 @@ class Input extends React.Component<IInputProps> {
       useNativeDriver: true,
     }).start();
   };
+  componentDidMount() {
+    if (this.props?.shouldAutoFocusOnMount) {
+      setTimeout(() => {
+        this.focus();
+      }, 500);
+    }
+  }
 
   render() {
     const {
@@ -81,6 +91,16 @@ class Input extends React.Component<IInputProps> {
       renderErrorMessage = true,
       style,
       theme,
+      h5,
+      h6,
+      h7,
+      h8 = true,
+      h9,
+      h5Style,
+      h6Style,
+      h7Style,
+      h8Style,
+      h9Style,
     } = this.props;
 
     const hideErrorMessage = !renderErrorMessage && !errorMessage;
@@ -89,7 +109,7 @@ class Input extends React.Component<IInputProps> {
       <View style={StyleSheet.flatten([styles.container, containerStyle])}>
         {renderText(
           label,
-          {style: labelStyle, ...labelProps},
+          { style: labelStyle, ...labelProps },
           {
             fontSize: 16,
             color: theme?.colors?.border,
@@ -129,13 +149,26 @@ class Input extends React.Component<IInputProps> {
               this.input = ref;
             }}
             style={StyleSheet.flatten([
+              GlobalStyles.flex1,
+              GlobalStyles.centerSelf,
+              GlobalStyles.noMarginXY,
+              GlobalStyles.noPaddingXY,
               {
-                alignSelf: 'center',
+                fontFamily: FontFamily.Nunito,
                 color: theme?.colors?.border,
-                fontSize: 18,
-                flex: 1,
+                // fontSize: 16,
                 minHeight: 40,
               },
+              h8 &&
+                flatten([{ fontSize: ScreenUtils.scaleFontSize(14) }, h8Style]),
+              h5 &&
+                flatten([{ fontSize: ScreenUtils.scaleFontSize(20) }, h5Style]),
+              h6 &&
+                flatten([{ fontSize: ScreenUtils.scaleFontSize(18) }, h6Style]),
+              h7 &&
+                flatten([{ fontSize: ScreenUtils.scaleFontSize(16) }, h7Style]),
+              h9 &&
+                flatten([{ fontSize: ScreenUtils.scaleFontSize(10) }, h9Style]),
               inputStyle,
               disabled && styles.disabledInput,
               disabled && disabledInputStyle,
@@ -164,7 +197,8 @@ class Input extends React.Component<IInputProps> {
             {
               margin: 5,
               fontSize: 12,
-              color: theme?.colors?.notification,
+              color: 'red',
+              // color: theme?.colors?.notification,
             },
             errorStyle && errorStyle,
             hideErrorMessage && {
@@ -180,24 +214,4 @@ class Input extends React.Component<IInputProps> {
   }
 }
 
-const shouldInputRender = (
-  prevProps: IInputProps,
-  nextProps: IInputProps,
-): boolean => {
-  return false;
-  // return (
-  //   prevProps?.value === nextProps?.value &&
-  //   prevProps?.errorMessage === nextProps?.errorMessage &&
-  //   prevProps?.currentFocusedInputId === nextProps?.currentFocusedInputId
-  // );
-};
-
-export const InputMemorized: FC<IInputProps> = withTheme(
-  React.memo((props: IInputProps) => {
-    // only renders if props have changed
-    // @ts-ignore
-    return <Input {...props} />;
-  }),
-);
-
-export default withTheme(Input);
+export default Input;

@@ -8,9 +8,9 @@ import {
   ViewStyle,
   ColorValue,
 } from 'react-native';
-import {Image, IImageProps} from '../Image';
-import {Icon, IIconProps} from '../Icon';
-import {RneFunctionComponent} from '../Helpers';
+import { Image, IImageProps } from '../Image';
+import { Icon, IIconProps } from '../Icon';
+import { RneFunctionComponent } from '../Helpers';
 
 export type AccessoryProps = Partial<IIconProps> &
   Partial<IImageProps> & {
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
       },
       default: {
         shadowColor: '#000',
-        shadowOffset: {width: 1, height: 1},
+        shadowOffset: { width: 1, height: 1 },
         shadowRadius: 2,
         shadowOpacity: 0.5,
       },

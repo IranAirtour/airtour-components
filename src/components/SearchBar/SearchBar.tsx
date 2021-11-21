@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, { FC } from 'react';
 import {
   View,
   TouchableOpacity,
@@ -6,20 +6,21 @@ import {
   ActivityIndicator,
 } from 'react-native';
 import Icon from '../Icon/Icon';
-import {Theme, useTheme} from '@react-navigation/native';
-import {styles} from './styles';
-import {SearchBarProps} from './interface';
+import { Theme, useTheme } from '@react-navigation/native';
+import { styles } from './styles';
+import { SearchBarProps } from './interface';
 import Input from '../Input/Input';
 
 const SearchView: FC<SearchBarProps> = props => {
   const theme: Theme = useTheme();
-  const {query, onQueryChange, onQuerySubmit, isLoading, ...attributes} = props;
+  const { query, onQueryChange, onQuerySubmit, isLoading, ...attributes } =
+    props;
 
   return (
     <View {...attributes}>
       <View style={styles.background}>
         <TouchableOpacity
-          style={{justifyContent: 'center'}}
+          style={{ justifyContent: 'center' }}
           onPress={onQuerySubmit}
         />
 

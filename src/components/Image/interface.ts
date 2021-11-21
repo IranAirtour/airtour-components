@@ -1,6 +1,6 @@
 import {
-  Animated,
   ImageProps as RNImageProps,
+  ImageStyle,
   StyleProp,
   ViewStyle,
 } from 'react-native';
@@ -15,5 +15,9 @@ export type IImageProps = RNImageProps & {
   placeholderStyle?: StyleProp<ViewStyle>;
   transition?: boolean;
   transitionDuration?: number;
+  childrenContainerStyle?: StyleProp<ViewStyle>;
+  PlaceholderContent?: any;
+  children?: any;
+  source: { uri: string } | any;
+  style: StyleProp<ImageStyle> & { priority?: string };
 };
-

@@ -8,12 +8,14 @@ import {
   ViewStyle,
 } from 'react-native';
 import React from 'react';
-import {ITextProps} from '../Text';
-import {IIconNode} from '../Icon';
-import {TouchableNativeFeedback} from 'react-native-gesture-handler';
+import { ITextProps } from '../Text';
+import { IIconNode } from '../Icon';
+import { TouchableNativeFeedback } from 'react-native-gesture-handler';
+import { ITextTypography } from '../Text/interface';
 
 export type IButtonProps = TouchableOpacityProps &
-  TouchableNativeFeedbackProps & {
+  TouchableNativeFeedbackProps &
+  ITextTypography & {
     title?: string | React.ReactElement<{}>;
     titleStyle?: StyleProp<TextStyle>;
     titleProps?: ITextProps;

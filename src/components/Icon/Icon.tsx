@@ -9,12 +9,13 @@ import {
 
 import Color from 'color';
 import getIconType from './getIconType';
-import {styles} from './styles';
-import {IIconProps} from './interface';
+import { styles } from './styles';
+import { IIconProps } from './interface';
+import { useThemeColors } from '../Theme/ThemeProvider';
 
 const Icon: React.FC<IIconProps> = props => {
   const {
-    type = 'material',
+    type = 'ionicon',
     name,
     size = 24,
     color: colorProp,
@@ -37,15 +38,20 @@ const Icon: React.FC<IIconProps> = props => {
     theme,
     ...attributes
   } = props;
-  const color = colorProp || theme?.colors?.black;
-  const reverseColor = reverseColorProp || theme?.colors?.white;
+  const themeColors = useThemeColors();
+  const color = colorProp || theme?.colors?.black || themeColors?.grey800;
+  const reverseColor =
+    reverseColorProp || theme?.colors?.white || themeColors?.backgroundPaper;
   const IconComponent = getIconType(type);
 
   const getBackgroundColor = () => {
     if (reverse) {
       return color;
     }
-    return raised ? theme?.colors?.white : 'transparent';
+    return (
+      (raised ? theme?.colors?.white : 'transparent') ??
+      themeColors?.backgroundPaper
+    );
   };
 
   const buttonStyles = {
@@ -99,7 +105,7 @@ const Icon: React.FC<IIconProps> = props => {
           <IconComponent
             testID="iconIcon"
             style={StyleSheet.flatten([
-              {backgroundColor: 'transparent'},
+              { backgroundColor: 'transparent' },
               iconStyle && iconStyle,
             ])}
             size={size}

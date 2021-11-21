@@ -2,10 +2,6 @@ import { StyleSheet } from 'react-native';
 import { ScreenUtils } from './index';
 export const flatten = StyleSheet.flatten;
 export const GlobalStyles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#ffffff',
-  },
   displayFlex: {
     display: 'flex',
   },
@@ -36,6 +32,9 @@ export const GlobalStyles = StyleSheet.create({
   },
   flex1: {
     flex: 1,
+  },
+  justifySA: {
+    justifyContent: 'space-around',
   },
   textStyle: {
     fontSize: ScreenUtils.scaleFontSize(20),

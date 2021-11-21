@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import React, { useMemo } from 'react';
 import {
   View,
   TouchableWithoutFeedback,
@@ -7,10 +7,9 @@ import {
   Platform,
   LayoutAnimation,
 } from 'react-native';
-import {IModalProps} from './interface';
-import {styles} from './styles';
-import {gestureHandlerRootHOC} from 'react-native-gesture-handler';
-import {GlobalStyles} from "../globalStyles";
+import { IModalProps } from './interface';
+import { styles } from './styles';
+import { GlobalStyles } from '../globalStyles';
 const easeAnimation = () => {
   if (Platform.OS !== 'ios') {
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
@@ -18,7 +17,7 @@ const easeAnimation = () => {
 };
 
 const ModalComponent = (props: IModalProps) => {
-  const {visible, onClose, opacity = 0.4, animationType} = props;
+  const { visible, onClose, opacity = 0.4, animationType } = props;
   //https://docs.swmansion.com/react-native-gesture-handler/docs/#usage-with-modals-on-android
   if (!visible) {
     return null;
@@ -43,7 +42,7 @@ const ModalComponent = (props: IModalProps) => {
           <View
             style={StyleSheet.flatten([
               styles.overlay,
-              {backgroundColor: `rgba(0,0,0,${opacity})`},
+              { backgroundColor: `rgba(0,0,0,${opacity})` },
             ])}
           />
         </TouchableWithoutFeedback>

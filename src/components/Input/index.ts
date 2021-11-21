@@ -1,4 +1,4 @@
 import Input from './Input';
-import {InputMemorized} from './Input';
-export {Input, InputMemorized};
-export type {IInputProps} from './interface';
+export default Input;
+export { Input };
+export type { IInputProps } from './interface';

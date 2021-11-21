@@ -2,6 +2,7 @@
   "name": "airtour-components",
   "version": "0.0.1",
   "private": true,
+  "main": "src/components/index.ts",
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
@@ -51,7 +52,7 @@
     "react-native-vector-icons": ">7.0.0"
   },
   "author": "airtour",
-  "description": "",
+  "description": "Iran Airtour UI Kit Components",
   "repository": {
     "type": "",
     "url": ""

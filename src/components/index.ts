@@ -29,6 +29,7 @@ import { NetworkFailure } from './NetworkFailure';
 import { LoadingLottie } from './LoadingLottie/LoadingLottie';
 import { ILoadingLottieProps } from './LoadingLottie/interface';
 import { AirtourLogo } from './AirtourLogo/AirtourLogo';
+import {GlobalStyles, flatten} from './globalStyles'
 
 export {
   BaseScreenView,
@@ -54,6 +55,8 @@ export {
   FileBottomSheet,
   useFileSheet,
   AirtourLogo,
+  GlobalStyles,
+  flatten,
 };
 
 export type {

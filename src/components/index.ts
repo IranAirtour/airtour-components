@@ -31,6 +31,8 @@ import { ILoadingLottieProps } from './LoadingLottie/interface';
 import { AirtourLogo } from './AirtourLogo/AirtourLogo';
 import {GlobalStyles, flatten} from './globalStyles'
 import {DateBar} from "./DateBar";
+import ThemeProvider from './Theme/ThemeProvider'
+import {useThemeColors, useThemeContext} from './Theme/ThemeProvider'
 
 export {
   BaseScreenView,
@@ -59,6 +61,9 @@ export {
   AirtourLogo,
   GlobalStyles,
   flatten,
+  ThemeProvider,
+  useThemeColors,
+  useThemeContext
 };
 
 export type {

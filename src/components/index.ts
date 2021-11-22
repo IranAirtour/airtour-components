@@ -11,7 +11,7 @@ import {
   IHeaderProps,
   IPlacement,
 } from './Header';
-import { FileBottomSheet } from './BottomSheet/FileBottomSheet';
+import { FileBottomSheet, BottomSheetButtonComponent } from './BottomSheet/FileBottomSheet';
 import { useFileSheet } from './BottomSheet/useFileSheet';
 import { ScreenUtils, renderNode, FontFamily } from './Helpers';
 import { Icon, IIconProps, IIconType } from './Icon';
@@ -55,6 +55,7 @@ export {
   NetworkFailure,
   LoadingLottie,
   BottomSheetButton,
+  BottomSheetButtonComponent,
   FileBottomSheet,
   useFileSheet,
   DateBar,

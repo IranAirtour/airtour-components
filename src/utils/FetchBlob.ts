@@ -7,7 +7,6 @@ import { randomId } from './RandomId';
 import { isIos } from './Platform';
 import { EventRegister } from './EventRegister';
 import { getFileName } from './Other';
-import { MessageFactory } from '../Factory/Message';
 import { logDebug, logError } from './Logger';
 import {generateAttachmentUrl, jsonParse} from './StringUtils';
 import type {IFileModel} from "../models/File";

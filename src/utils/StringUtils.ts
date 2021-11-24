@@ -1,4 +1,5 @@
 import { isIos } from './Platform';
+import type {IServerAttachment} from "../models/IServerAttachment";
 
 export function stringify(value: any): string {
   return typeof value === 'string' ? value : JSON.stringify(value);
@@ -117,4 +118,9 @@ export function isRtl(text: string): boolean {
  */
 export function getInputFlexDirectionByText(text: string): 'right' | 'left' | 'auto' {
   return isIos ? (isRtl(text) ? 'right' : 'left') : 'auto';
+}
+
+export function generateAttachmentUrl(attachment: IServerAttachment, mediaUrl: string): string {
+  return mediaUrl ? mediaUrl + `${attachment?.id}?hash=${attachment?.hash}` : ''
+
 }

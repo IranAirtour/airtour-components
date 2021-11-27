@@ -32,7 +32,8 @@ import { AirtourLogo } from './AirtourLogo/AirtourLogo';
 import {GlobalStyles, flatten} from './globalStyles'
 import {DateBar} from "./DateBar";
 import ThemeProvider from './Theme/ThemeProvider'
-import {useThemeColors, useThemeContext} from './Theme/ThemeProvider'
+import {useThemeColors, useThemeContext} from './Theme/ThemeProvider';
+import FileViewer from 'react-native-file-viewer';
 
 export {
   BaseScreenView,
@@ -64,7 +65,8 @@ export {
   flatten,
   ThemeProvider,
   useThemeColors,
-  useThemeContext
+  useThemeContext,
+  FileViewer,
 };
 
 export type {

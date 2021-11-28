@@ -33,7 +33,6 @@ import {GlobalStyles, flatten} from './globalStyles'
 import {DateBar} from "./DateBar";
 import ThemeProvider from './Theme/ThemeProvider'
 import {useThemeColors, useThemeContext} from './Theme/ThemeProvider';
-import FileViewer from 'react-native-file-viewer';
 
 export {
   BaseScreenView,
@@ -66,7 +65,6 @@ export {
   ThemeProvider,
   useThemeColors,
   useThemeContext,
-  FileViewer,
 };
 
 export type {

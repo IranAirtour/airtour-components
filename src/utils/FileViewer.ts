@@ -4,11 +4,10 @@ import {ToastHandlerClient} from "./Toast";
 interface IFileViewer {
     openFile(path: string): void;
 }
-class FileViewerHandler implements IFileViewer {
+class FileViewerClient implements IFileViewer {
     static openFile(path: string): void {
         FileViewer.open(path).catch(() => {
             ToastHandlerClient.show('format denied');
         });
     }
 }
-export const FileViewerClient = new FileViewerHandler();

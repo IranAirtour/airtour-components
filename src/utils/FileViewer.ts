@@ -5,7 +5,7 @@ interface IFileViewer {
     openFile(path: string): void;
 }
 export class FileViewerClient implements IFileViewer {
-    static openFile(path: string): void {
+    static async openFile(path: string): Promise<void> {
         FileViewer.open(path).catch(() => {
             ToastHandlerClient.show('format denied');
         });

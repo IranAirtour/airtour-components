@@ -33,6 +33,7 @@ import {GlobalStyles, flatten} from './globalStyles'
 import {DateBar} from "./DateBar";
 import ThemeProvider from './Theme/ThemeProvider'
 import {useThemeColors, useThemeContext} from './Theme/ThemeProvider';
+import {withUploadProgressPercent} from './withUploadProgressPercent'
 
 export {
   BaseScreenView,
@@ -65,6 +66,7 @@ export {
   ThemeProvider,
   useThemeColors,
   useThemeContext,
+  withUploadProgressPercent,
 };
 
 export type {

@@ -34,6 +34,7 @@ import {DateBar} from "./DateBar";
 import ThemeProvider from './Theme/ThemeProvider'
 import {useThemeColors, useThemeContext} from './Theme/ThemeProvider';
 import {withUploadProgressPercent} from './withUploadProgressPercent'
+import NotificationBadge from './NotificationBadge'
 
 export {
   BaseScreenView,
@@ -67,6 +68,7 @@ export {
   useThemeColors,
   useThemeContext,
   withUploadProgressPercent,
+  NotificationBadge,
 };
 
 export type {

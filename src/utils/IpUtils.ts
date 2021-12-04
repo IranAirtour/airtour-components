@@ -6,7 +6,7 @@ export const getCountryByIp = (ip: string): Promise<string> => {
     )
         .then(response => response.json())
         .then((responseJson: { country_name: string }) => {
-            console.log('countryName', responseJson?.country_name);
+            console.log('countryName', JSON.stringify(responseJson));
             return Promise.resolve(responseJson?.country_name);
         })
         .catch(error => {

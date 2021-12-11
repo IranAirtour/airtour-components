@@ -1,8 +1,8 @@
 import RNFetchBlob, {
   FetchBlobResponse,
-  RNFetchBlobStat,
+  ReactNativeBlobUtilStat, // RNFetchBlobStat,
   StatefulPromise,
-} from 'rn-fetch-blob';
+} from 'react-native-blob-util';
 import { randomId } from './RandomId';
 import { isIos } from './Platform';
 import { EventRegister } from './EventRegister';
@@ -279,7 +279,7 @@ export class FetchBlobHandler implements IFetchBlobHandler {
   getFileServiceProgress(taskId: string): number {
     return FetchBlobHandler.getFileServiceProgress(taskId);
   }
-  async getFileStat(path: string): Promise<RNFetchBlobStat> {
+  async getFileStat(path: string): Promise<ReactNativeBlobUtilStat> {
     try {
       return await RNFetchBlob.fs.stat(path);
     } catch (e) {

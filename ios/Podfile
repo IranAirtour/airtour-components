@@ -12,6 +12,8 @@ target 'airtour_components' do
     :hermes_enabled => false
   )
 
+  pod 'react-native-blob-util', :path => '../node_modules/react-native-blob-util'
+
   target 'airtour_componentsTests' do
     inherit! :complete
     # Pods for testing

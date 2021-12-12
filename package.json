@@ -14,7 +14,8 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "react-native-file-viewer": "^2.1.4"
+    "react-native-file-viewer": "^2.1.4",
+    "react-native-blob-util": "^0.13.18"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
@@ -62,7 +63,6 @@
     "react-test-renderer": "17.0.2",
     "reanimated-bottom-sheet": "^1.0.0-alpha.22",
     "rn-fetch-blob": "^0.12.0",
-    "react-native-blob-util": "^0.13.18",
     "type-detect": "^4.0.8"
   },
   "peerDependencies": {

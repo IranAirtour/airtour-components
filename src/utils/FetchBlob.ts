@@ -107,8 +107,8 @@ export class FetchBlobHandler implements IFetchBlobHandler {
           fileMeta?.fileName && fileMeta.mimeType
               ? fileMeta.fileName + '.' + fileMeta.mimeType
               : getFileName(apiMeta?.url);
-      const downloadPath =
-          (fileMeta?.pathToDownload || this.ChatPath) + fileName;
+      const downloadPath = (fileMeta?.pathToDownload || this.ChatPath);
+      // const downloadPath = (fileMeta?.pathToDownload || this.ChatPath) + fileName;
       const task: StatefulPromise<any> = RNFetchBlob.config({
         path: downloadPath,
       }).fetch(apiMeta?.method || 'GET', apiMeta.url, {

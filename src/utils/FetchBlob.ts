@@ -58,7 +58,21 @@ export interface IFetchBlobUploadResult extends IServerAttachment {
   url?: INullableString;
 }
 
+export enum BackgroundDownloadServiceEvents {
+  'DOWNLOAD_BEGIN' = '0',
+  'DOWNLOAD_PROGRESS' = '1',
+  'DOWNLOAD_DONE' = '2',
+  'DOWNLOAD_FAIL' = '3',
+}
+
+export type IBackgroundDownloadEventPayload = {
+  progress: number;
+  taskId: string;
+  subEvent?: BackgroundDownloadServiceEvents;
+};
+
 export class FetchBlobHandler implements IFetchBlobHandler {
+  static BACKGROUND_DOWNLOAD_EVENT: string = 'BACKGROUND_DOWNLOAD_EVENT';
   // readonly DefaultPathForDownload =
   // RNFetchBlob.fs.dirs.DCIMDir + '/airour/touraround/';
   readonly DefaultPathForDownload =

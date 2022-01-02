@@ -219,7 +219,7 @@ export class FetchBlobHandler implements IFetchBlobHandler {
       const responseData: IServerAttachment =
           typeof response?.data === 'string'
               ? jsonParse(response?.data)
-              : response;
+              : response.data;
       const {
         name = '',
         hash = null,
@@ -230,7 +230,7 @@ export class FetchBlobHandler implements IFetchBlobHandler {
       if (!id) {
         return Promise.reject('upload failed');
       }
-      const url = generateAttachmentUrl(responseData, mediaBaseUrl ?? '');
+      const url = generateAttachmentUrl(responseData, apiMeta.url ?? '');
       const responseUploadResultData: IFetchBlobUploadResult = {
         messageSequentialId: null,
         senderUserId: null,

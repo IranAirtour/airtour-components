@@ -1,7 +1,8 @@
 import { StyleSheet } from 'react-native';
-import {FontFamily, ScreenUtils} from "../Helpers";
+import { FontFamily } from '../Helpers';
+import Scaling from '../../utils/Scailing';
 
-const BADGE_CIRCLE_WIDTH = ScreenUtils.width * 0.05;
+const BADGE_CIRCLE_WIDTH = Scaling.ms(16);
 
 export const styles = StyleSheet.create({
   notificationBadgeContainer: {

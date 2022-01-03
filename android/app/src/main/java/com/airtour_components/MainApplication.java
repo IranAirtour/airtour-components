@@ -2,6 +2,7 @@ package com.airtour_components;
 
 import android.app.Application;
 import android.content.Context;
+import com.ReactNativeBlobUtil.ReactNativeBlobUtilPackage;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
 import com.facebook.react.ReactInstanceManager;

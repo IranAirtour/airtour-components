@@ -14,8 +14,13 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "react-native-file-viewer": "^2.1.4",
-    "react-native-blob-util": "^0.13.18"
+    "@types/react-native-background-downloader": "^2.3.4",
+    "react-native-androw": "^0.0.34",
+    "react-native-background-actions": "^2.6.0",
+    "react-native-background-downloader": "^2.3.4",
+    "react-native-blob-util": "^0.13.18",
+    "react-native-blurhash": "^1.1.7",
+    "react-native-file-viewer": "^2.1.4"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
@@ -55,6 +60,7 @@
     "react-native-gesture-handler": "^1.10.3",
     "react-native-image-crop-picker": "github:IranAirtour/react-native-image-crop-picker",
     "react-native-permissions": "^3.0.2",
+    "react-native-queue": "github:inkitt/react-native-queue-asyncstorage",
     "react-native-reanimated": "^2.2.4",
     "react-native-safe-area-context": "^3.2.0",
     "react-native-toasty": "^2.0.0",

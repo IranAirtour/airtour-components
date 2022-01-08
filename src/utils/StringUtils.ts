@@ -121,6 +121,6 @@ export function getInputFlexDirectionByText(text: string): 'right' | 'left' | 'a
 }
 
 export function generateAttachmentUrl(attachment: IServerAttachment, mediaUrl: string): string {
-  return mediaUrl ? mediaUrl + `${attachment?.id}?hash=${attachment?.hash}` : ''
+  return mediaUrl ? mediaUrl + `/${attachment?.id}?hash=${attachment?.hash}` : ''
 
 }

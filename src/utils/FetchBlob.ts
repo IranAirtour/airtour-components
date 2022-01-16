@@ -121,6 +121,7 @@ export class FetchBlobHandler implements IFetchBlobHandler {
           fileMeta?.fileName && fileMeta.mimeType
               ? fileMeta.fileName + '.' + fileMeta.mimeType
               : getFileName(apiMeta?.url);
+      const fileSize = fileMeta?.fileSize ?? 1
       const downloadPath = (fileMeta?.pathToDownload || this.ChatPath);
       // const downloadPath = (fileMeta?.pathToDownload || this.ChatPath) + fileName;
       const task: StatefulPromise<any> = RNFetchBlob.config({
@@ -131,19 +132,10 @@ export class FetchBlobHandler implements IFetchBlobHandler {
       });
       FetchBlobHandler.Queue.set(taskId, task);
       const response: FetchBlobResponse = await task
-          .progress({ count: 10 }, () => {
-            // .progress({count: 10}, (received, total) => {
-            // not working
-            // const progress = Math.ceil(
-            //   Number((received / total).toFixed(2)) * 100,
-            // );
-            const progress = FetchBlobHandler.FileServiceProgress[taskId] + 7;
+          .progress({ interval: 250 }, (received: number, total: number) => {
+            const progress = Math.floor(received/(fileSize) * 100);
             FetchBlobHandler.FileServiceProgress[taskId] = progress;
             EventRegister.emit('download_progress', { progress, taskId });
-            // ms download progress
-            // if (__DEV__) {
-            //   console.log('download_progress', progress);
-            // }
             logDebug(progress, 'download progress for:' + taskId);
             if (downloadProgressCB) {
               downloadProgressCB(progress);

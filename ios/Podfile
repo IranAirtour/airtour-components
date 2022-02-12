@@ -14,6 +14,8 @@ target 'airtour_components' do
 
   pod 'react-native-blob-util', :path => '../node_modules/react-native-blob-util'
 
+  pod 'RNSVG', :path => '../node_modules/react-native-svg'
+
   target 'airtour_componentsTests' do
     inherit! :complete
     # Pods for testing

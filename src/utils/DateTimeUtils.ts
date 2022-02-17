@@ -113,7 +113,7 @@ export default class DateTimeFormatter {
           : moment.unix(date).format(DATE_TIME_FORMATTERS.time);
     } else {
       return isUtc
-          ? moment(date).utc().format(DATE_TIME_FORMATTERS.time)
+          ? moment(moment.utc(date).toDate()).local().format(DATE_TIME_FORMATTERS.time)
           : moment(date).format(DATE_TIME_FORMATTERS.time);
     }
   };
